@@ -4,9 +4,6 @@ import ResultTable from './components/ResultsTable/ResultsTable';
 
 function App() {
   const calculateHandler = (userInput) => {
-    // Should be triggered when form is submitted
-    // You might not directly want to bind it to the submit event on the form though...
-
     const yearlyData = []; // per-year results
 
     let currentSavings = +userInput['current-savings']; // feel free to change the shape of this input object!
