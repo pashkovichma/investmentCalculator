@@ -12,7 +12,8 @@ const UserInput = props => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log('submit');
+    
+    props.onCalculate(userInput);
   };
   
   const resetHandler = () => {
