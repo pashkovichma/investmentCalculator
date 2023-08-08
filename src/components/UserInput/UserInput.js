@@ -7,24 +7,24 @@ const initialUserInput = {
   duration: 10,
 }
 
-const UserInput = props => {
+const UserInput = () => {
   const [userInput, setUserInput] = useState(initialUserInput);
 
   const submitHandler = (event) => {
     event.preventDefault();
     
-    props.onCalculate(userInput);
+    console.log('submit');
   };
   
   const resetHandler = () => {
-    setUserInput({initialUserInput})
+    setUserInput(initialUserInput);
   };
 
   const inputChangeHandler = (input, value) => {
     setUserInput((prevInput) => {
       return {
         ...prevInput,
-        [input]: value,
+        [input]: +value,
       };
     });
   };
@@ -36,7 +36,7 @@ const UserInput = props => {
           <label htmlFor="current-savings">Current Savings ($)</label>
           <input
             onChange={(event) =>
-              inputChangeHandler('current - savings', event.target.value)
+              inputChangeHandler('current-savings', event.target.value)
             }
             value={userInput['current-savings']}
             type="number"
@@ -83,7 +83,7 @@ const UserInput = props => {
         <button onClick={resetHandler} type="reset" className="buttonAlt">
           Reset
         </button>
-        <button type="submit" className="button">
+        <button onClick={resetHandler} type="submit" className="button">
           Calculate
         </button>
       </p>
